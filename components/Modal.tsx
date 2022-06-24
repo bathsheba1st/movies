@@ -42,8 +42,6 @@ const Modal = () => {
         .then((res) => res.json())
         .catch((err) => console.log(err.message));
 
-      console.log(data);
-
       if (data.videos) {
         const index = data.videos.results.findIndex(
           (element: Element) => element.type === 'Trailer'

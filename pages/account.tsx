@@ -2,7 +2,6 @@ import { getProducts, Product } from '@stripe/firestore-stripe-payments'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState } from 'react'
 import Membership from '../components/Membership'
 import useAuth from '../hooks/useAuth'
 import useSubscription from '../hooks/useSubscription'
@@ -13,10 +12,8 @@ interface Props {
 }
 
 const Account = ({ products }: Props) => {
-  console.log(products)
   const { user, logout, loading } = useAuth()
   const subscription = useSubscription(user)
-  const [isBillingLoading, setBillingLoading] = useState(false)
 
   if (loading) return null
 
@@ -26,7 +23,7 @@ const Account = ({ products }: Props) => {
         <title>Account Settings - Movies</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className={`bg-[#141414]`}>
+      <header className={`bg-[#141414] pb-2`}>
         <Link href="/">
           <img
             src="https://media.istockphoto.com/photos/popcorn-and-clapperboard-picture-id1191001701?k=20&m=1191001701&s=612x612&w=0&h=uDszifNzvgeY5QrPwWvocFOUCw8ugViuw-U8LCJ1wu8="
